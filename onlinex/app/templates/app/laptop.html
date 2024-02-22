@@ -6,28 +6,17 @@
     <div class="row">
         <div class="col-sm-3">
             <div class="list-group">
-
-                <a href="{% url 'laptop' %}" class="list-group-item list-group-item-action" aria-current="true">All
-                    Laptop</a>
-                <a href="{% url 'laptopdata' 'Redmi' %}" class="list-group-item list-group-item-action"
-                    aria-current="true">Redmi</a>
-                <a href="{% url 'laptopdata' 'Samsung' %}" class="list-group-item list-group-item-action"
-                    aria-current="true">Samsung</a>
-                <a href="{% url 'laptopdata' 'Apple' %}" class="list-group-item list-group-item-action"
-                    aria-current="true">Apple</a>
-                <a href="{% url 'laptopdata' 'Asus' %}" class="list-group-item list-group-item-action"
-                    aria-current="true">Asus</a>
-                <a href="{% url 'laptopdata' 'Dell' %}" class="list-group-item list-group-item-action"
-                    aria-current="true">Dell</a>
-                <a href="{% url 'laptopdata' 'HP' %}" class="list-group-item list-group-item-action"
-                    aria-current="true">HP</a>
-                <a href="{% url 'laptopdata' 'below' %}" class="list-group-item list-group-item-action"
-                    aria-current="true">Below 30000</a>
-
-                <a href="{% url 'laptopdata' 'above' %}" class="list-group-item list-group-item-action"
-                    aria-current="true">Above 30000</a>
-                
+                <a href="{% url 'laptop' %}" class="list-group-item list-group-item-action" aria-current="true">All Laptop</a>
+                <a href="{% url 'laptop' 'Redmi' %}" class="list-group-item list-group-item-action" aria-current="true">Redmi</a>
+                <a href="{% url 'laptop' 'Samsung' %}" class="list-group-item list-group-item-action" aria-current="true">Samsung</a>
+                <a href="{% url 'laptop' 'Apple' %}" class="list-group-item list-group-item-action" aria-current="true">Apple</a>
+                <a href="{% url 'laptop' 'Asus' %}" class="list-group-item list-group-item-action" aria-current="true">Asus</a>
+                <a href="{% url 'laptop' 'Dell' %}" class="list-group-item list-group-item-action" aria-current="true">Dell</a>
+                <a href="{% url 'laptop' 'HP' %}" class="list-group-item list-group-item-action" aria-current="true">HP</a> 
+                <a href="{% url 'laptop' 'below' %}" class="list-group-item list-group-item-action" aria-current="true">Below 30000</a>
+                <a href="{% url 'laptop' 'above' %}" class="list-group-item list-group-item-action" aria-current="true">Above 30000</a>
             </div>
+            
         </div>
         <div class="col-sm-8">
             <div class="row">
