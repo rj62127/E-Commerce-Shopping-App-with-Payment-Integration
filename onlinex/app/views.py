@@ -1,3 +1,4 @@
+from django import views
 from django.shortcuts import render
 from django.views import View
 from .models import Customer, Product, Cart, OrderPlaced
@@ -15,8 +16,12 @@ class ProductView(View):
 
   
 
-def product_detail(request):
- return render(request, 'app/productdetail.html')
+# def product_detail(request):
+#  return render(request, 'app/productdetail.html')
+class ProductDetailView(View):
+  def get(self, request, pk):
+   product = Product.objects.get(pk=pk)
+   return render(request, 'app/productdetail.html', {'product':product})
 
 def add_to_cart(request):
  return render(request, 'app/addtocart.html')
@@ -36,8 +41,30 @@ def orders(request):
 def change_password(request):
  return render(request, 'app/changepassword.html')
 
-def mobile(request):
- return render(request, 'app/mobile.html')
+def mobile(request, data=None):
+ if data == None:
+  mobiles  = Product.objects.filter(category='M')
+ elif data == 'Redmi' or data == 'Samsung' or data == 'Apple' or data == 'Motrola' or data == 'Poco' or data == 'redmi':
+  mobiles  = Product.objects.filter(category='M').filter(brand=data)
+ elif data == 'below':
+  mobiles  = Product.objects.filter(category='M').filter(discounted_price__lt=10000)
+ elif data == 'above':
+  mobiles  = Product.objects.filter(category='M').filter(discounted_price__gt=10000)
+
+ return render(request, 'app/mobile.html', {'mobiles': mobiles})
+
+
+def laptop(request, data=None):
+ if data == None:
+  laptops  = Product.objects.filter(category='L')
+ elif data == 'HP' or data == 'Samsung' or data == 'Apple' or data == 'Dell' or data == 'Asus' or data == 'redmi':
+  laptops  = Product.objects.filter(category='L').filter(brand=data)
+ elif data == 'below':
+  laptops  = Product.objects.filter(category='L').filter(discounted_price__lt=30000)
+ elif data == 'above':
+  laptops  = Product.objects.filter(category='L').filter(discounted_price__gt=30000)
+
+ return render(request, 'app/laptop.html', {'laptops': laptops})
 
 def login(request):
  return render(request, 'app/login.html')
